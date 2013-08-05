@@ -33,6 +33,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    Post.find_by_id(params[:id]).destroy
+    redirect_to category_posts_path
   end
 
   private
