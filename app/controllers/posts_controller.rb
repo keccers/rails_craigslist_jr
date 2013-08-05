@@ -23,9 +23,13 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find_by_id(params[:id])
   end
 
   def update
+    @post = Post.find_by_id(params[:id])
+    @post.update_attributes(params[:post])
+    redirect_to category_post_path
   end
 
   def destroy
