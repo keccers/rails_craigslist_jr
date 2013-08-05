@@ -6,13 +6,15 @@ def index
 end
 
 def create
+  @post = Post.new(params[:post])
+  @post.category_id = params[:category_id]
+  @post.save
 
-  #pulling data to create post
+  redirect_to category_posts_path
 end
 
 def new
-
-  #render the form
+  @post = Post.new
 end
 
 def edit
