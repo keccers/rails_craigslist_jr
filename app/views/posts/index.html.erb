@@ -1,0 +1,7 @@
+<span class="category-head">Browse all posts in <span id="category-page-var"><%= @category.title %></span> or <%= link_to "create your own post about #{@category.title}", new_category_post_path(@category) %></span>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li><%= link_to post.title, category_post_path(@category, post) %></li>
+  <% end %>
+</ul>
