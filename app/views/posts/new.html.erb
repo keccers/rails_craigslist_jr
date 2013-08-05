@@ -1,11 +1,2 @@
-<%= form_for @post, url: {action: "create"}, html: {class: "create-post"} do |f| %>
-<%= f.label :title, 'Title' %>
-<%= f.text_field :title %>
-<%= f.label :text, 'Text' %>
-<%= f.text_area :text %>
-<%= f.label :email, 'Email Address' %>
-<%= f.email_field :email %>
-<%= f.label :price, "Price" %>
-<%= f.text_field :price %>
-<%= f.submit  %>
-<% end %>
+<%= render partial: "post_form_fields", locals: {post: @post} %>
+
