@@ -1,2 +1,7 @@
+<% if @post.errors %>
+  <% @post.errors.full_messages.each do |error| %>
+    <p class="error"><%= error %></p>
+  <% end %>
+<% end %>
 <%= render partial: "post_form_fields", locals: {post: @post} %>
 
