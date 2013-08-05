@@ -1,4 +1,7 @@
 RailsCraigslist::Application.routes.draw do
+  resources :categories do
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
