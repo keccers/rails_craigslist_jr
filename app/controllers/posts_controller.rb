@@ -2,15 +2,14 @@ class PostsController < ApplicationController
   before_filter :load_category
 
   def index
-    @posts = @category.posts #Post.where(category_id: params[:category_id])
+    @posts = @category.posts
   end
 
   def create
     @post = @category.posts.new(params[:post])
-    p params
     if @post.save
-      #@post.create_tag_list
-      redirect_to category_posts_path
+      flash[:edit_url] = true
+      redirect_to category_post_path(@category, @post)
     else
       render "new"
     end
@@ -21,7 +20,12 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find_by_id(params[:id])
+    if params[:key] == Post.find_by_id(params[:id]).key
+      @post = Post.find_by_id(params[:id])
+    else
+      flash[:lol_nope] = "LOL NOPE NICE TRY"
+      redirect_to category_posts_path
+    end
   end
 
   def show

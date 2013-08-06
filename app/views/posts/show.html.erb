@@ -1,3 +1,7 @@
+<% if flash[:edit_url] %>
+  <p>Edit your post here: /categories/<%= @category.id %>/posts/<%= @post.id %>/edit?key=<%= @post.key %></p>
+<% end %>
+
 <h1><%= @post.title %></h1>
 <h2>$<%= @post.price %>.00</h2>
 <p><%= @post.text %></p>
