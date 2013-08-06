@@ -7,7 +7,9 @@ class PostsController < ApplicationController
 
   def create
     @post = @category.posts.new(params[:post])
+    p params
     if @post.save
+      #@post.create_tag_list
       redirect_to category_posts_path
     else
       render "new"
